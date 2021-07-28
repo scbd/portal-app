@@ -16,7 +16,7 @@ _run:
     command: |
       docker info
       docker login -u $DOCKER_USER -p $DOCKER_PASS
-      docker build --squash -t output --build-arg VERSION=$CIRCLE_SHA1 --build-arg BRANCH=${CIRCLE_BRANCH:-master} --build-arg TAG=$CIRCLE_TAG .
+      docker build -t output --build-arg VERSION=$CIRCLE_SHA1 --build-arg BRANCH=${CIRCLE_BRANCH:-master} --build-arg TAG=$CIRCLE_TAG .
   testImage: &testImage
     name: Test docker image 
     command:  |
