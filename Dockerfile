@@ -9,7 +9,7 @@ COPY package.json ./
 
 RUN yarn run clean-reinstall
 
-COPY . ./
+COPY . .
 
 RUN yarn run build
 
