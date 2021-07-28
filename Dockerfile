@@ -5,13 +5,15 @@ RUN apk update && apk upgrade && \
 
 WORKDIR /usr/src/app
 
-COPY package.json ./
 
-RUN yarn run clean-reinstall
+
+
 
 RUN cd /usr/src/app/
+COPY package.json ./
 COPY . .
 
+RUN yarn run clean-reinstall
 RUN yarn run build
 
 ENV PORT 3000
