@@ -1,17 +1,20 @@
 FROM node:14.16.1-alpine3.10
 
+RUN apk update && apk upgrade && \
+    apk add --no-cache yarn
+
 WORKDIR /usr/src/app
 
 COPY package.json ./
 
-RUN npm run clean-reinstall
+RUN yarn run clean-reinstall
 
 COPY . ./
 
-RUN npm run build
+RUN yarn run build
 
 ENV PORT 3000
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["yarn", "start"]
