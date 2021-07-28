@@ -9,6 +9,7 @@ COPY package.json ./
 
 RUN yarn run clean-reinstall
 
+RUN cd /usr/src/app/
 COPY . .
 
 RUN yarn run build
